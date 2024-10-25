@@ -64,9 +64,9 @@ def running_time(songs: list[data.Song], order: list[int]) -> data.Duration:
 def validate_route(city_links: list[list[str]], route: list[str]) -> bool:
     for i in range(len(route) - 1):
         l = route[i:i + 2]
-        lr = l.reverse()
+        lr = l[::-1]
 
-        if not(l in city_links and lr in city_links):
+        if not(l in city_links or lr in city_links):
             return False
 
     return True
